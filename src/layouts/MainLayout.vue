@@ -23,6 +23,14 @@
           stack-label
           style="min-width: 100px"
         />
+        <q-btn
+          padding="none"
+          flat
+          :ripple="false"
+          :icon="$q.dark.isActive ? 'dark_mode' : 'light_mode'"
+          @click="$q.dark.toggle()"
+          :title="$t('texts.toggleDarkMode')"
+        />
       </q-toolbar>
     </q-header>
 
@@ -50,11 +58,13 @@ import EssentialLink, {
   EssentialLinkProps,
 } from 'components/EssentialLink.vue';
 import { useI18n } from 'vue-i18n';
+import { useQuasar } from 'quasar';
 
 defineOptions({
   name: 'MainLayout',
 });
 
+const $q = useQuasar();
 const { locale, t } = useI18n({ useScope: 'global' });
 
 const localeOptions = computed(() => [
@@ -68,42 +78,6 @@ const linksList: EssentialLinkProps[] = [
     caption: 'quasar.dev',
     icon: 'school',
     link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
   },
 ];
 

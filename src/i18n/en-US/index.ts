@@ -2,13 +2,14 @@
 // so you can safely delete all default props below
 
 export default {
-  failed: 'Action failed',
-  success: 'Action was successful',
   words: {
     language: 'Language',
   },
   languages: {
     en: 'English',
     pt: 'Portuguese',
+  },
+  texts: {
+    toggleDarkMode: 'Toggle dark mode',
   }
 };
