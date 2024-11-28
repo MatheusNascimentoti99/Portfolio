@@ -3,5 +3,12 @@
 
 export default {
   failed: 'Action failed',
-  success: 'Action was successful'
+  success: 'Action was successful',
+  words: {
+    language: 'Language',
+  },
+  languages: {
+    en: 'English',
+    pt: 'Portuguese',
+  }
 };

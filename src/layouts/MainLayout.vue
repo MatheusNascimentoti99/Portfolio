@@ -16,15 +16,13 @@
         <q-select
           v-model="locale"
           :options="localeOptions"
-          label="Quasar Language"
-          dense
-          borderless
+          :label="$t('words.language')"
           emit-value
           map-options
-          options-dense
-          style="min-width: 150px"
+          borderless
+          stack-label
+          style="min-width: 100px"
         />
-        <div>{{ $t('success') }}</div>
       </q-toolbar>
     </q-header>
 
@@ -47,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import EssentialLink, {
   EssentialLinkProps,
 } from 'components/EssentialLink.vue';
@@ -57,12 +55,12 @@ defineOptions({
   name: 'MainLayout',
 });
 
-const { locale } = useI18n({ useScope: 'global' });
+const { locale, t } = useI18n({ useScope: 'global' });
 
-const localeOptions = [
-  { value: 'en-US', label: 'English' },
-  { value: 'pt-BR', label: 'Português' },
-];
+const localeOptions = computed(() => [
+  { value: 'en-US', label: t('languages.en') },
+  { value: 'pt-BR', label: t('languages.pt') },
+]);
 
 const linksList: EssentialLinkProps[] = [
   {
