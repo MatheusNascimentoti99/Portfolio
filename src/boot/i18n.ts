@@ -11,21 +11,54 @@ export type MessageSchema = typeof messages['en-US'];
 /* eslint-disable @typescript-eslint/no-empty-interface */
 declare module 'vue-i18n' {
   // define the locale messages schema
-  export interface DefineLocaleMessage extends MessageSchema {}
+  export interface DefineLocaleMessage extends MessageSchema { }
 
   // define the datetime format schema
-  export interface DefineDateTimeFormat {}
+  export interface DefineDateTimeFormat { }
 
   // define the number format schema
-  export interface DefineNumberFormat {}
+  export interface DefineNumberFormat { }
 }
 /* eslint-enable @typescript-eslint/no-empty-interface */
 
 export default boot(({ app }) => {
   const i18n = createI18n({
-    locale: 'en-US',
+    locale: 'pt-BR',
+    fallbackLocale: 'en-US',
     legacy: false,
     messages,
+    datetimeFormats: {
+      'pt-BR': {
+        short: {
+          year: 'numeric', month: 'short', day: 'numeric'
+        },
+        long: {
+          year: 'numeric', month: 'short', day: 'numeric',
+          weekday: 'short', hour: 'numeric', minute: 'numeric'
+        }
+      },
+      'en-US': {
+        short: {
+          year: 'numeric', month: 'short', day: 'numeric'
+        },
+        long: {
+          year: 'numeric', month: 'short', day: 'numeric',
+          weekday: 'short', hour: 'numeric', minute: 'numeric'
+        }
+      }
+    },
+    numberFormats: {
+      'pt-BR': {
+        currency: {
+          style: 'currency', currency: 'BRL'
+        }
+      },
+      'en-US': {
+        currency: {
+          style: 'currency', currency: 'USD'
+        }
+      }
+    }
   });
 
   // Set i18n instance on app
