@@ -1,64 +1,58 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+    <q-toolbar>
+      <q-toolbar-title> Matheus_n9 </q-toolbar-title>
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
-
-        <q-select
-          v-model="locale"
-          :options="localeOptions"
-          :label="$t('words.language')"
-          emit-value
-          map-options
-          borderless
-          stack-label
-          style="min-width: 100px"
-        />
-        <q-btn
-          padding="none"
-          flat
-          :ripple="false"
-          :icon="$q.dark.isActive ? 'dark_mode' : 'light_mode'"
-          @click="$q.dark.toggle()"
-          :title="$t('texts.toggleDarkMode')"
-        />
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
-
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
+      <q-select
+        v-model="locale"
+        :options="localeOptions"
+        :label="$t('words.language')"
+        emit-value
+        map-options
+        borderless
+        stack-label
+        class="q-mr-md"
+        style="min-width: 100px"
+      />
+      <q-btn
+        v-if="$q.dark.isActive"
+        padding="none"
+        flat
+        :ripple="false"
+        :icon="'dark_mode'"
+        @click="$q.dark.toggle()"
+        :title="$t('texts.toggleDarkMode')"
+        class="animate__animated animate__rotateIn"
+        fab
+      />
+      <q-btn
+        v-else
+        padding="none"
+        flat
+        :ripple="false"
+        :icon="'light_mode'"
+        @click="$q.dark.toggle()"
+        :title="$t('texts.toggleDarkMode')"
+        class="animate__animated animate__rotateIn"
+        fab
+      />
+    </q-toolbar>
 
     <q-page-container>
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition v-memo="[locale]">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </q-page-container>
   </q-layout>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import EssentialLink, {
-  EssentialLinkProps,
-} from 'components/EssentialLink.vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useQuasar } from 'quasar';
+import 'animate.css';
 
 defineOptions({
   name: 'MainLayout',
@@ -71,19 +65,5 @@ const localeOptions = computed(() => [
   { value: 'en-US', label: t('languages.en') },
   { value: 'pt-BR', label: t('languages.pt') },
 ]);
-
-const linksList: EssentialLinkProps[] = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-];
-
-const leftDrawerOpen = ref(false);
-
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-}
 </script>
+<style lang="scss" scoped></style>
