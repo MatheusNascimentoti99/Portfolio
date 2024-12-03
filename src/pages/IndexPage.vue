@@ -1,6 +1,15 @@
 <template>
   <q-page class="row items-center justify-evenly q-pa-md q-pt-xl">
-    <section class="q-pt-xl" :class="{ row: $q.screen.gt.md }" id="home">
+    <section
+      class="q-pt-xl"
+      :class="{ row: $q.screen.gt.md }"
+      id="home"
+      v-intersection.once="
+      (entry: IntersectionObserverEntry) => {
+        findIntersection(entry, 'home')
+        return true
+      }"
+    >
       <div
         class="col-4 animate__animated animate__fadeInRight"
         v-if="$q.screen.gt.md"
@@ -17,7 +26,10 @@
 
       <div
         v-else
-        class="row items-center justify-center animate__animated animate__fadeInRight"
+        class="row items-center justify-center"
+        :class="{
+          'animate__animated animate__fadeInRight': intersections.home,
+        }"
       >
         <q-avatar size="14rem" color="primary">
           <q-img
@@ -28,7 +40,12 @@
           />
         </q-avatar>
       </div>
-      <div class="col animate__animated animate__fadeInRight">
+      <div
+        class="col"
+        :class="{
+          'animate__animated animate__fadeInRight': intersections.home,
+        }"
+      >
         <h2 v-t="'texts.welcomePortfolio'" class="q-my-md"></h2>
         <p v-t="'texts.myDescription'" class="text-justify"></p>
         <q-list>
@@ -113,7 +130,7 @@
       </div>
     </section>
     <section
-      v-intersection.once="
+      v-intersection="
         (entry: IntersectionObserverEntry) => {
           findIntersection(entry, 'skills')
           return true
@@ -124,7 +141,7 @@
     >
       <h4 v-t="{ path: 'words.skill', plural: 2 }" class="q-ml-md"></h4>
       <div
-        class="row no-wrap scroll hide-scrollbar"
+        class="row no-wrap scroll"
         :class="{
           'animate__animated animate__bounceInLeft': intersections.skills,
         }"
@@ -160,8 +177,8 @@
         class="q-ml-md text-center full-width"
       ></h4>
       <div
-        class="row no-wrap overflow-auto hide-scrollbar"
-        v-intersection.once="
+        class="row no-wrap overflow-auto"
+        v-intersection="
           (entry: IntersectionObserverEntry) => {
             findIntersection(entry, 'projects')
             return true
@@ -173,7 +190,7 @@
         <q-card
           v-for="item in projects"
           :key="item.title"
-          class="card-projects q-ma-sm q-pt-md q-px-sm"
+          class="q-ma-sm q-pt-md q-px-sm"
         >
           <q-img
             :src="item.image"
@@ -182,7 +199,7 @@
             fit="scale-down"
             class="q-ma-sm"
           />
-          <q-card-section>
+          <q-card-section class="card-projects">
             <q-item>
               <q-item-section>
                 <q-item-label header class="q-mb-sm q-pa-none">

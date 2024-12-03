@@ -7,10 +7,21 @@
   color: #f8f9fa;
 }
 
-body {
-  scrollbar-width: thin;
-}
+@media (min-width: $breakpoint-xs-max) {
+  ::-webkit-scrollbar {
+    height: 12px; /* Width of the scrollbar */
+    width: 12px; /* Height of the scrollbar */
+  }
 
-body::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scroll thumb */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scroll track */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color on hover */
+  }
 }
