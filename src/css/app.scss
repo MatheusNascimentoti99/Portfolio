@@ -6,3 +6,11 @@
 .body--dark {
   color: #f8f9fa;
 }
+
+body {
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}

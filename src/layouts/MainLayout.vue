@@ -1,42 +1,51 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-toolbar>
-      <q-toolbar-title> Matheus_n9 </q-toolbar-title>
+  <q-layout view="hHh lpR fff">
+    <q-header reveal>
+      <q-toolbar>
+        <q-toolbar-title> Matheus_n9 </q-toolbar-title>
 
-      <q-select
-        v-model="locale"
-        :options="localeOptions"
-        :label="$t('words.language')"
-        emit-value
-        map-options
-        borderless
-        stack-label
-        class="q-mr-md"
-        style="min-width: 100px"
-      />
-      <q-btn
-        v-if="$q.dark.isActive"
-        padding="none"
-        flat
-        :ripple="false"
-        :icon="'dark_mode'"
-        @click="$q.dark.toggle()"
-        :title="$t('texts.toggleDarkMode')"
-        class="animate__animated animate__rotateIn"
-        fab
-      />
-      <q-btn
-        v-else
-        padding="none"
-        flat
-        :ripple="false"
-        :icon="'light_mode'"
-        @click="$q.dark.toggle()"
-        :title="$t('texts.toggleDarkMode')"
-        class="animate__animated animate__rotateIn"
-        fab
-      />
-    </q-toolbar>
+        <q-select
+          v-model="locale"
+          :options="localeOptions"
+          :label="$t('words.language')"
+          emit-value
+          map-options
+          borderless
+          stack-label
+          class="q-mr-md"
+          style="min-width: 100px"
+        />
+        <q-btn
+          v-if="$q.dark.isActive"
+          padding="none"
+          flat
+          :ripple="false"
+          :icon="'dark_mode'"
+          @click="$q.dark.toggle()"
+          :title="$t('texts.toggleDarkMode')"
+          class="animate__animated animate__rotateIn"
+          fab
+        />
+        <q-btn
+          v-else
+          padding="none"
+          flat
+          :ripple="false"
+          :icon="'light_mode'"
+          @click="$q.dark.toggle()"
+          :title="$t('texts.toggleDarkMode')"
+          class="animate__animated animate__rotateIn"
+          fab
+        />
+      </q-toolbar>
+    </q-header>
+    <q-footer>
+      <q-toolbar>
+        <q-toolbar-title class="text-caption">
+          © 2024 Copyright: Matheus Nascimento
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
 
     <q-page-container>
       <router-view v-slot="{ Component }">
