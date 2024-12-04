@@ -16,7 +16,7 @@
       >
         <q-avatar size="26rem" color="primary">
           <q-img
-            src="src/assets/images/foto_perfil.png"
+            src="~assets/images/foto_perfil.png"
             alt="Foto do perfil"
             fit="scale-down"
             class="rotate-90"
@@ -33,7 +33,7 @@
       >
         <q-avatar size="14rem" color="primary">
           <q-img
-            src="src/assets/images/foto_perfil.png"
+            src="~assets/images/foto_perfil.png"
             alt="Foto do perfil"
             fit="scale-down"
             class="rotate-90"
