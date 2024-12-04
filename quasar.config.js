@@ -7,7 +7,7 @@
 
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
-import { fileURLToPath } from 'node:url';
+const { fileURLToPath, meta } = require('node:url');
 
 const { configure } = require('quasar/wrappers');
 const path = require('path');
@@ -45,7 +45,7 @@ module.exports = configure(function (/* ctx */) {
         chain.module
           .rule('i18n-resource')
           .test(/\.(json5?|ya?ml)$/)
-          .include.add(fileURLToPath(new URL('./src/i18n', import.meta.url)))
+          .include.add(fileURLToPath(new URL('./src/i18n', meta.url)))
           .end()
           .type('javascript/auto')
           .use('i18n-resource')
@@ -91,7 +91,7 @@ module.exports = configure(function (/* ctx */) {
 
             // if you want to use named tokens in your Vue I18n messages, such as 'Hello {name}',
             // you need to set `runtimeOnly: false`
-            // runtimeOnly: false,
+            runtimeOnly: false,
 
             // you need to set i18n resource including paths !
             include: path.resolve(__dirname, './src/i18n/**'),
