@@ -6,13 +6,13 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { onMounted } from 'vue';
-import anime from 'animejs/lib/anime.es.js';
+import { onMounted } from 'vue'
+import anime from 'animejs/lib/anime.es.js'
 
 onMounted(() => {
-  var loop = true;
-  var easing = 'linear';
-  var direction = 'alternate';
+  const loop = true
+  const easing = 'linear'
+  const direction = 'alternate'
 
   anime({
     targets: '.ball',
@@ -28,19 +28,19 @@ onMounted(() => {
       { value: '#18FF92' },
       { value: '#5A87FF' },
     ],
-  });
-  var ballTimeline = anime.timeline({
+  })
+  const ballTimeline = anime.timeline({
     loop,
     direction,
-  });
-  var bar2Timeline = anime.timeline({
+  })
+  const bar2Timeline = anime.timeline({
     loop,
     direction,
-  });
-  var bar1Timeline = anime.timeline({
+  })
+  const bar1Timeline = anime.timeline({
     loop,
     direction,
-  });
+  })
   ballTimeline
     .add({
       targets: '.ball',
@@ -59,7 +59,7 @@ onMounted(() => {
       translateY: '-80',
       translateX: '98vw',
       easing,
-    });
+    })
   bar2Timeline
     .add({
       targets: '.bar2',
@@ -78,7 +78,7 @@ onMounted(() => {
       translateY: '-100',
       easing,
       background: '#FBF38C',
-    });
+    })
   bar1Timeline
     .add({
       targets: '.bar1',
@@ -97,8 +97,8 @@ onMounted(() => {
       translateY: 60,
       easing,
       background: '#FF1461',
-    });
-});
+    })
+})
 </script>
 <style scoped>
 .container {

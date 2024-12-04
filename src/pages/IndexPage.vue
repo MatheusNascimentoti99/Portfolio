@@ -5,15 +5,13 @@
       :class="{ row: $q.screen.gt.md }"
       id="home"
       v-intersection.once="
-      (entry: IntersectionObserverEntry) => {
-        findIntersection(entry, 'home')
-        return true
-      }"
+        (entry: IntersectionObserverEntry) => {
+          findIntersection(entry, 'home')
+          return true
+        }
+      "
     >
-      <div
-        class="col-4 animate__animated animate__fadeInRight"
-        v-if="$q.screen.gt.md"
-      >
+      <div class="col-4 animate__animated animate__fadeInRight" v-if="$q.screen.gt.md">
         <q-avatar size="26rem" color="primary">
           <q-img
             src="~assets/images/foto_perfil.png"
@@ -72,11 +70,11 @@
         class="q-gutter-xl"
         :class="{ row: $q.screen.gt.sm }"
         v-intersection.once="
-        (entry: IntersectionObserverEntry) => {
-          findIntersection(entry, 'aboutMe')
-          return true
-        }
-      "
+          (entry: IntersectionObserverEntry) => {
+            findIntersection(entry, 'aboutMe')
+            return true
+          }
+        "
       >
         <div
           class="col"
@@ -119,11 +117,7 @@
               class="animate__animated animate__fadeIn"
             >
               <p v-text="item.description" class="text-justify"></p>
-              <q-chip
-                v-for="stack in item.stacks"
-                :key="stack"
-                :label="stack"
-              />
+              <q-chip v-for="stack in item.stacks" :key="stack" :label="stack" />
             </q-timeline-entry>
           </q-timeline>
         </div>
@@ -172,26 +166,20 @@
       </div>
     </section>
     <section class="full-width row justify-center q-my-md" id="projects">
-      <h4
-        v-t="{ path: 'words.project', plural: 2 }"
-        class="q-ml-md text-center full-width"
-      ></h4>
+      <h4 v-t="{ path: 'words.project', plural: 2 }" class="q-ml-md text-center full-width"></h4>
       <div
         class="row no-wrap overflow-auto"
         v-intersection.once="
           (entry: IntersectionObserverEntry) => {
             findIntersection(entry, 'projects')
             return true
-        }"
+          }
+        "
         :class="{
           'animate__animated animate__slideInLeft': intersections.projects,
         }"
       >
-        <q-card
-          v-for="item in projects"
-          :key="item.title"
-          class="q-ma-sm q-pt-md q-px-sm"
-        >
+        <q-card v-for="item in projects" :key="item.title" class="q-ma-sm q-pt-md q-px-sm">
           <q-img
             :src="item.image"
             alt="FogLedger Indy"
@@ -218,12 +206,7 @@
                   />
                 </q-item-label>
                 <q-item-label caption class="row justify-end">
-                  <q-btn
-                    flat
-                    color="accent"
-                    label="Acessar"
-                    @click="openURL(item.link)"
-                  />
+                  <q-btn flat color="accent" label="Acessar" @click="openURL(item.link)" />
                 </q-item-label>
               </q-item-section>
             </q-item>
@@ -235,19 +218,20 @@
 </template>
 
 <script setup lang="ts">
-import { openURL } from 'quasar';
-import { computed, Ref, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
-import IndyLogo from 'src/assets/images/indy-logo.png';
-import UnityLogo from 'src/assets/images/unity-logo.svg';
-import JavaLogo from 'src/assets/images/java-logo.png';
-import OpenCVLogo from 'src/assets/images/openCV-logo.png';
+import { openURL } from 'quasar'
+import type { Ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import IndyLogo from 'src/assets/images/indy-logo.png'
+import UnityLogo from 'src/assets/images/unity-logo.svg'
+import JavaLogo from 'src/assets/images/java-logo.png'
+import OpenCVLogo from 'src/assets/images/openCV-logo.png'
 
 defineOptions({
   name: 'IndexPage',
-});
+})
 
-const { t, d } = useI18n();
+const { t, d } = useI18n()
 
 const intersections = ref({
   home: false,
@@ -255,7 +239,7 @@ const intersections = ref({
   skills: false,
   projects: false,
   news: false,
-}) as Ref<{ [key: string]: boolean }>;
+}) as Ref<{ [key: string]: boolean }>
 
 const socialMedia = [
   {
@@ -273,14 +257,14 @@ const socialMedia = [
     url: 'https://www.instagram.com/matheus_n9/',
     title: t('words.instagram'),
   },
-];
+]
 
 const formation = computed(() => [
   {
     title: t('texts.formations.technicalTitle'),
     subtitle: `${t('words.formations.technical')}: ${d(
       new Date('2013-08-01'),
-      'short'
+      'short',
     )} - ${d(new Date('2016-12-01'), 'short')}`,
     description: t('texts.formations.technicalDescription'),
   },
@@ -288,7 +272,7 @@ const formation = computed(() => [
     title: t('texts.formations.graduationTitle'),
     subtitle: `${t('words.formations.graduation')}: ${d(
       new Date('2017-08-01'),
-      'short'
+      'short',
     )} - ${d(new Date('2023-08-01'), 'short')}`,
     description: t('texts.formations.graduationDescription'),
   },
@@ -296,21 +280,18 @@ const formation = computed(() => [
     title: t('texts.formations.postGraduationTitle'),
     subtitle: `${t('words.formations.postGraduation')}: ${d(
       new Date('2024-08-06'),
-      'short'
+      'short',
     )} - ${t('words.present')}`,
     description: t('texts.formations.postGraduationDescription'),
   },
-]);
+])
 
 const experience = computed(() => [
   {
     title: `${t('words.experiences.golfarma')} - ${t('texts.techLead')}/${t(
-      'texts.fullStackDeveloper'
+      'texts.fullStackDeveloper',
     )}`,
-    subtitle: `${d(new Date('2021-04-19'), 'short')} - ${d(
-      new Date('2023-08-08'),
-      'short'
-    )}`,
+    subtitle: `${d(new Date('2021-04-19'), 'short')} - ${d(new Date('2023-08-08'), 'short')}`,
     description: t('texts.experiences.golfarma'),
     stacks: [
       'PHP',
@@ -329,25 +310,10 @@ const experience = computed(() => [
     ],
   },
   {
-    title: `${t('words.experiences.conexa')} - ${t(
-      'texts.fullStackDeveloper'
-    )}`,
-    subtitle: `${d(new Date('2023-08-14'), 'short')} - ${d(
-      new Date('2024-08-09'),
-      'short'
-    )}`,
+    title: `${t('words.experiences.conexa')} - ${t('texts.fullStackDeveloper')}`,
+    subtitle: `${d(new Date('2023-08-14'), 'short')} - ${d(new Date('2024-08-09'), 'short')}`,
     description: t('texts.experiences.conexa'),
-    stacks: [
-      'PHP',
-      'Yii',
-      'Vue.js',
-      'Docker',
-      'MySQL',
-      'Cordova',
-      'Docker',
-      'REST',
-      'JQuery',
-    ],
+    stacks: ['PHP', 'Yii', 'Vue.js', 'Docker', 'MySQL', 'Cordova', 'Docker', 'REST', 'JQuery'],
   },
   {
     title: `${t('words.experiences.sjba')} - ${t('texts.fullStackDeveloper')}`,
@@ -364,7 +330,7 @@ const experience = computed(() => [
       'Web Service',
     ],
   },
-]);
+])
 
 const skills = computed(() => [
   {
@@ -390,17 +356,7 @@ const skills = computed(() => [
   {
     title: t('words.skills.devOps'),
     icon: 'mdi-source-branch',
-    items: [
-      'Docker',
-      'Nginx',
-      'Apache2',
-      'AWS',
-      'Git',
-      'GitHub',
-      'GitLab',
-      'Bitbucket',
-      'CI/CD',
-    ],
+    items: ['Docker', 'Nginx', 'Apache2', 'AWS', 'Git', 'GitHub', 'GitLab', 'Bitbucket', 'CI/CD'],
   },
   {
     title: t('words.skills.mobile'),
@@ -412,7 +368,7 @@ const skills = computed(() => [
     icon: 'mdi-head-lightbulb',
     items: ['Scrum', 'Kanban', 'XP', 'SOLID'],
   },
-]);
+])
 
 const projects = computed(() => [
   {
@@ -443,12 +399,12 @@ const projects = computed(() => [
     stacks: ['Java', 'Socket', 'UDP', 'TCP', 'HTTP'],
     image: JavaLogo,
   },
-]);
+])
 
 const findIntersection = (entry: IntersectionObserverEntry, key: string) => {
-  intersections.value[key] = entry.isIntersecting;
-  return true;
-};
+  intersections.value[key] = entry.isIntersecting
+  return true
+}
 </script>
 <style lang="scss" scoped>
 .card-projects {
