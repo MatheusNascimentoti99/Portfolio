@@ -178,7 +178,7 @@
       ></h4>
       <div
         class="row no-wrap overflow-auto"
-        v-intersection="
+        v-intersection.once="
           (entry: IntersectionObserverEntry) => {
             findIntersection(entry, 'projects')
             return true
@@ -238,6 +238,10 @@
 import { openURL } from 'quasar';
 import { computed, Ref, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import IndyLogo from 'src/assets/images/indy-logo.png';
+import UnityLogo from 'src/assets/images/unity-logo.svg';
+import JavaLogo from 'src/assets/images/java-logo.png';
+import OpenCVLogo from 'src/assets/images/openCV-logo.png';
 
 defineOptions({
   name: 'IndexPage',
@@ -416,28 +420,28 @@ const projects = computed(() => [
     description: t('texts.projects.fogLedgerIndy'),
     link: 'https://larsid.github.io/FogLedger-Indy/',
     stacks: ['Python', 'Docker', 'Hyperledger Indy', 'Aries'],
-    image: 'src/assets/images/indy-logo.png',
+    image: IndyLogo,
   },
   {
     title: 'AssociaSom',
     description: t('texts.projects.associaSom'),
     link: 'https://github.com/MatheusNascimentoti99/AssociaSom',
     stacks: ['C#', 'Unity', 'Firebase'],
-    image: 'src/assets/images/unity-logo.svg',
+    image: UnityLogo,
   },
   {
     title: t('texts.projects.recognitionTransitSigns'),
     description: t('texts.projects.recognitionTransitSignsDescription'),
     link: 'https://github.com/MatheusNascimentoti99/ReconhecimentoPlacasTransito-',
     stacks: ['Python', 'OpenCV', 'Perceptron', 'KNN'],
-    image: 'src/assets/images/openCV-logo.png',
+    image: OpenCVLogo,
   },
   {
     title: t('texts.projects.flightReservation'),
     description: t('texts.projects.flightReservationDescription'),
     link: 'https://github.com/ThatsJojo/MI-Redes-3',
     stacks: ['Java', 'Socket', 'UDP', 'TCP', 'HTTP'],
-    image: 'src/assets/images/java-logo.png',
+    image: JavaLogo,
   },
 ]);
 
@@ -449,5 +453,13 @@ const findIntersection = (entry: IntersectionObserverEntry, key: string) => {
 <style lang="scss" scoped>
 .card-projects {
   width: 24rem;
+}
+
+.scroll {
+  overflow: hidden;
+}
+
+.scroll:hover {
+  overflow-x: scroll;
 }
 </style>
