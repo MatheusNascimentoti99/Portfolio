@@ -5,19 +5,19 @@ import messages from 'src/i18n';
 
 export type MessageLanguages = keyof typeof messages;
 // Type-define 'en-US' as the master schema for the resource
-export type MessageSchema = typeof messages['en-US'];
+export type MessageSchema = (typeof messages)['en-US'];
 
 // See https://vue-i18n.intlify.dev/guide/advanced/typescript.html#global-resource-schema-type-definition
 /* eslint-disable @typescript-eslint/no-empty-interface */
 declare module 'vue-i18n' {
   // define the locale messages schema
-  export interface DefineLocaleMessage extends MessageSchema { }
+  export interface DefineLocaleMessage extends MessageSchema {}
 
   // define the datetime format schema
-  export interface DefineDateTimeFormat { }
+  export interface DefineDateTimeFormat {}
 
   // define the number format schema
-  export interface DefineNumberFormat { }
+  export interface DefineNumberFormat {}
 }
 /* eslint-enable @typescript-eslint/no-empty-interface */
 
@@ -30,35 +30,49 @@ export default boot(({ app }) => {
     datetimeFormats: {
       'pt-BR': {
         short: {
-          year: 'numeric', month: 'short', day: 'numeric'
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
         },
         long: {
-          year: 'numeric', month: 'short', day: 'numeric',
-          weekday: 'short', hour: 'numeric', minute: 'numeric'
-        }
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          weekday: 'short',
+          hour: 'numeric',
+          minute: 'numeric',
+        },
       },
       'en-US': {
         short: {
-          year: 'numeric', month: 'short', day: 'numeric'
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
         },
         long: {
-          year: 'numeric', month: 'short', day: 'numeric',
-          weekday: 'short', hour: 'numeric', minute: 'numeric'
-        }
-      }
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          weekday: 'short',
+          hour: 'numeric',
+          minute: 'numeric',
+        },
+      },
     },
     numberFormats: {
       'pt-BR': {
         currency: {
-          style: 'currency', currency: 'BRL'
-        }
+          style: 'currency',
+          currency: 'BRL',
+        },
       },
       'en-US': {
         currency: {
-          style: 'currency', currency: 'USD'
-        }
-      }
-    }
+          style: 'currency',
+          currency: 'USD',
+        },
+      },
+    },
   });
 
   // Set i18n instance on app
