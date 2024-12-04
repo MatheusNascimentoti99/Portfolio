@@ -10,11 +10,16 @@
           :label="$t('words.language')"
           emit-value
           map-options
-          borderless
-          stack-label
+          label-color="white"
           class="q-mr-md"
           style="min-width: 100px"
-        />
+        >
+          <template v-slot:selected-item="{ opt }">
+            <span class="text-white text-caption">
+              {{ opt.label }}
+            </span>
+          </template>
+        </q-select>
         <q-btn
           v-if="$q.dark.isActive"
           padding="none"
