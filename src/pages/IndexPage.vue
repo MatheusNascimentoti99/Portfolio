@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row items-center justify-evenly q-pa-md q-pt-xl">
+  <q-page class="row items-center justify-evenly q-pa-lg q-pt-xl">
     <section
       class="q-pt-xl"
       :class="{ row: $q.screen.gt.md }"

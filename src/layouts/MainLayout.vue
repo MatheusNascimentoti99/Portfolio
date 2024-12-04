@@ -46,6 +46,7 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
+    <AnimatedLines />
 
     <q-page-container>
       <router-view v-slot="{ Component }">
@@ -61,6 +62,7 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useQuasar } from 'quasar';
+import AnimatedLines from 'src/components/AnimatedLines.vue';
 import 'animate.css';
 
 defineOptions({
