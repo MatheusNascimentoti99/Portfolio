@@ -454,12 +454,4 @@ const findIntersection = (entry: IntersectionObserverEntry, key: string) => {
 .card-projects {
   width: 24rem;
 }
-
-.scroll {
-  overflow: hidden;
-}
-
-.scroll:hover {
-  overflow-x: scroll;
-}
 </style>
