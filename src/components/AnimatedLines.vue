@@ -45,7 +45,7 @@ onMounted(() => {
     .add({
       targets: '.ball',
       translateY: 100,
-      translateX: '97vw',
+      translateX: '98vw',
       easing,
     })
     .add({
@@ -57,7 +57,7 @@ onMounted(() => {
     .add({
       targets: '.ball',
       translateY: '-80',
-      translateX: '97vw',
+      translateX: '98vw',
       easing,
     });
   bar2Timeline
@@ -102,7 +102,7 @@ onMounted(() => {
 </script>
 <style scoped>
 .container {
-  width: 99vw;
+  width: 100%;
   display: inline-block;
   transform: translateY(200px);
   position: fixed;
