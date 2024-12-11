@@ -127,14 +127,14 @@
           'animate__animated animate__bounceInLeft': intersections.skills,
         }"
       >
-        <q-card v-for="item in skills" :key="item.title" class="q-ma-sm">
+        <q-card v-for="item in skills" :key="item.title" class="q-ma-sm" bordered>
           <q-card-section class="card-projects">
             <q-item>
               <q-item-section avatar>
                 <q-icon :name="item.icon" size="2rem" />
               </q-item-section>
               <q-item-section>
-                <q-item-label header>
+                <q-item-label header class="text-subtitle1">
                   {{ item.title }}
                 </q-item-label>
                 <q-item-label caption>
@@ -143,6 +143,7 @@
                     :key="stack"
                     :label="stack"
                     size="sm"
+                    class="text-weight-medium text-white"
                     color="secondary"
                   />
                 </q-item-label>
@@ -166,18 +167,18 @@
           'animate__animated animate__slideInLeft': intersections.projects,
         }"
       >
-        <q-card v-for="item in projects" :key="item.title" class="q-ma-sm q-pt-md q-px-sm">
+        <q-card v-for="item in projects" :key="item.title" class="q-ma-sm q-pt-md q-px-sm" bordered>
           <q-img
             :src="item.image"
             alt="FogLedger Indy"
             height="80px"
             fit="scale-down"
-            class="q-ma-sm"
+            class="q-ma-sm card-projects"
           />
-          <q-card-section class="card-projects">
+          <q-card-section>
             <q-item>
               <q-item-section>
-                <q-item-label header class="q-mb-sm q-pa-none">
+                <q-item-label header class="q-mb-sm q-pa-none text-subtitle1">
                   {{ item.title }}
                 </q-item-label>
                 <q-item-label caption>
@@ -188,15 +189,17 @@
                     v-for="stack in item.stacks"
                     :key="stack"
                     :label="stack"
+                    class="text-weight-medium text-white"
                     color="secondary"
                     size="sm"
                   />
                 </q-item-label>
-                <q-item-label caption class="row justify-end">
-                  <q-btn flat color="accent" label="Acessar" @click="openURL(item.link)" />
-                </q-item-label>
               </q-item-section>
             </q-item>
+            <q-separator />
+            <q-item-label caption class="row justify-end">
+              <q-btn flat color="info" label="Acessar" @click="openURL(item.link)" />
+            </q-item-label>
           </q-card-section>
         </q-card>
       </div>
@@ -385,5 +388,6 @@ const findIntersection = (entry: IntersectionObserverEntry, key: string) => {
 .animation-game {
   position: absolute;
   top: 1vh;
+  z-index: 99;
 }
 </style>
