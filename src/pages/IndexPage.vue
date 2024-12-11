@@ -1,5 +1,6 @@
 <template>
-  <q-page class="row items-center justify-evenly q-pa-lg q-pt-xl">
+  <q-page class="row items-center justify-evenly q-pa-lg q-pt-xl non-selectable">
+    <AnimatedLines class="animation-game" />
     <section
       class="q-pt-xl"
       :class="{ row: $q.screen.gt.md }"
@@ -46,21 +47,7 @@
       >
         <h2 v-t="'texts.welcomePortfolio'" class="q-my-md"></h2>
         <p v-t="'texts.myDescription'" class="text-justify"></p>
-        <q-list>
-          <q-btn
-            v-for="item in socialMedia"
-            :key="item.icon"
-            clickable
-            v-ripple
-            fab
-            padding="sm"
-            flat
-            @click="openURL(item.url)"
-            :title="item.title"
-          >
-            <q-icon :name="item.icon" size="md" />
-          </q-btn>
-        </q-list>
+        <SocialMediaList />
       </div>
     </section>
     <q-separator />
@@ -226,6 +213,8 @@ import IndyLogo from 'src/assets/images/indy-logo.png'
 import UnityLogo from 'src/assets/images/unity-logo.svg'
 import JavaLogo from 'src/assets/images/java-logo.png'
 import OpenCVLogo from 'src/assets/images/openCV-logo.png'
+import AnimatedLines from 'src/components/AnimatedLines.vue'
+import SocialMediaList from 'src/components/SocialMediaList.vue'
 
 defineOptions({
   name: 'IndexPage',
@@ -240,24 +229,6 @@ const intersections = ref({
   projects: false,
   news: false,
 }) as Ref<{ [key: string]: boolean }>
-
-const socialMedia = [
-  {
-    icon: 'mdi-github',
-    url: 'https://github.com/MatheusNascimentoti99',
-    title: t('words.github'),
-  },
-  {
-    icon: 'mdi-linkedin',
-    url: 'https://www.linkedin.com/in/matheus-nascimento-322a0b181/',
-    title: t('words.linkedin'),
-  },
-  {
-    icon: 'mdi-instagram',
-    url: 'https://www.instagram.com/matheus_n9/',
-    title: t('words.instagram'),
-  },
-]
 
 const formation = computed(() => [
   {
@@ -409,5 +380,10 @@ const findIntersection = (entry: IntersectionObserverEntry, key: string) => {
 <style lang="scss" scoped>
 .card-projects {
   width: 24rem;
+}
+
+.animation-game {
+  position: absolute;
+  top: 1vh;
 }
 </style>

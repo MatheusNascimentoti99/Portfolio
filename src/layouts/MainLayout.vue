@@ -44,14 +44,14 @@
         />
       </q-toolbar>
     </q-header>
-    <q-footer>
+    <q-footer reveal>
       <q-toolbar>
         <q-toolbar-title class="text-caption">
           © 2024 Copyright: Matheus Nascimento
         </q-toolbar-title>
+        <SocialMediaList size="sm" />
       </q-toolbar>
     </q-footer>
-    <AnimatedLines />
 
     <q-page-container>
       <router-view v-slot="{ Component }">
@@ -64,22 +64,22 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
-import { useQuasar } from 'quasar';
-import AnimatedLines from 'src/components/AnimatedLines.vue';
-import 'animate.css';
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useQuasar } from 'quasar'
+import 'animate.css'
+import SocialMediaList from 'src/components/SocialMediaList.vue'
 
 defineOptions({
   name: 'MainLayout',
-});
+})
 
-const $q = useQuasar();
-const { locale, t } = useI18n({ useScope: 'global' });
+const $q = useQuasar()
+const { locale, t } = useI18n({ useScope: 'global' })
 
 const localeOptions = computed(() => [
   { value: 'en-US', label: t('languages.en') },
   { value: 'pt-BR', label: t('languages.pt') },
-]);
+])
 </script>
 <style lang="scss" scoped></style>

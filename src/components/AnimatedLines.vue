@@ -105,7 +105,6 @@ onMounted(() => {
   width: 100%;
   display: inline-block;
   transform: translateY(200px);
-  position: fixed;
 }
 .bar {
   background: #ffffff;
