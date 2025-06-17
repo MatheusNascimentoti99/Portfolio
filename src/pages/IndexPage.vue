@@ -122,13 +122,20 @@
     >
       <h4 v-t="{ path: 'words.skill', plural: 2 }" class="q-ml-md"></h4>
       <div
-        class="row no-wrap scroll"
+        class="row wrap justify-center q-gutter-y-md"
         :class="{
           'animate__animated animate__bounceInLeft': intersections.skills,
+          'q-gutter-md': $q.screen.gt.sm,
         }"
       >
-        <q-card v-for="item in skills" :key="item.title" class="q-ma-sm" bordered>
-          <q-card-section class="card-projects">
+        <q-card
+          v-for="item in skills"
+          :key="item.title"
+          bordered
+          class="card-hover"
+          :class="$q.screen.gt.sm ? 'card-projects' : 'full-width'"
+        >
+          <q-card-section>
             <q-item>
               <q-item-section avatar>
                 <q-icon :name="item.icon" size="2rem" />
@@ -233,78 +240,82 @@ const intersections = ref({
   news: false,
 }) as Ref<{ [key: string]: boolean }>
 
-const formation = computed(() => [
-  {
-    title: t('texts.formations.technicalTitle'),
-    subtitle: `${t('words.formations.technical')}: ${d(
-      new Date('2013-08-01'),
-      'short',
-    )} - ${d(new Date('2016-12-01'), 'short')}`,
-    description: t('texts.formations.technicalDescription'),
-  },
-  {
-    title: t('texts.formations.graduationTitle'),
-    subtitle: `${t('words.formations.graduation')}: ${d(
-      new Date('2017-08-01'),
-      'short',
-    )} - ${d(new Date('2023-08-01'), 'short')}`,
-    description: t('texts.formations.graduationDescription'),
-  },
-  {
-    title: t('texts.formations.postGraduationTitle'),
-    subtitle: `${t('words.formations.postGraduation')}: ${d(
-      new Date('2024-08-06'),
-      'short',
-    )} - ${t('words.present')}`,
-    description: t('texts.formations.postGraduationDescription'),
-  },
-])
+const formation = computed(() =>
+  [
+    {
+      title: t('texts.formations.technicalTitle'),
+      subtitle: `${t('words.formations.technical')}: ${d(
+        new Date('2013-08-01'),
+        'short',
+      )} - ${d(new Date('2016-12-01'), 'short')}`,
+      description: t('texts.formations.technicalDescription'),
+    },
+    {
+      title: t('texts.formations.graduationTitle'),
+      subtitle: `${t('words.formations.graduation')}: ${d(
+        new Date('2017-08-01'),
+        'short',
+      )} - ${d(new Date('2023-08-01'), 'short')}`,
+      description: t('texts.formations.graduationDescription'),
+    },
+    {
+      title: t('texts.formations.postGraduationTitle'),
+      subtitle: `${t('words.formations.postGraduation')}: ${d(
+        new Date('2024-08-06'),
+        'short',
+      )} - ${t('words.present')}`,
+      description: t('texts.formations.postGraduationDescription'),
+    },
+  ].reverse(),
+)
 
-const experience = computed(() => [
-  {
-    title: `${t('words.experiences.golfarma')} - ${t('texts.techLead')}/${t(
-      'texts.fullStackDeveloper',
-    )}`,
-    subtitle: `${d(new Date('2021-04-19'), 'short')} - ${d(new Date('2023-08-08'), 'short')}`,
-    description: t('texts.experiences.golfarma'),
-    stacks: [
-      'PHP',
-      'Laravel',
-      'TypeScript',
-      'Vue.js',
-      'Docker',
-      'SQL Server',
-      'Cordova',
-      'Capacitor',
-      'S3',
-      'Nginx',
-      'AWS',
-      'Git',
-      'REST',
-    ],
-  },
-  {
-    title: `${t('words.experiences.conexa')} - ${t('texts.fullStackDeveloper')}`,
-    subtitle: `${d(new Date('2023-08-14'), 'short')} - ${d(new Date('2024-08-09'), 'short')}`,
-    description: t('texts.experiences.conexa'),
-    stacks: ['PHP', 'Yii', 'Vue.js', 'Docker', 'MySQL', 'Cordova', 'Docker', 'REST', 'JQuery'],
-  },
-  {
-    title: `${t('words.experiences.sjba')} - ${t('texts.fullStackDeveloper')}`,
-    subtitle: `${d(new Date('2024-08-06'), 'short')} - ${t('words.present')}`,
-    description: t('texts.experiences.sjba'),
-    stacks: [
-      'Java',
-      'Spring',
-      'Vue.js',
-      'Docker',
-      'Javascript',
-      'TypeScript',
-      'REST',
-      'Web Service',
-    ],
-  },
-])
+const experience = computed(() =>
+  [
+    {
+      title: `${t('words.experiences.golfarma')} - ${t('texts.techLead')}/${t(
+        'texts.fullStackDeveloper',
+      )}`,
+      subtitle: `${d(new Date('2021-04-19'), 'short')} - ${d(new Date('2023-08-08'), 'short')}`,
+      description: t('texts.experiences.golfarma'),
+      stacks: [
+        'PHP',
+        'Laravel',
+        'TypeScript',
+        'Vue.js',
+        'Docker',
+        'SQL Server',
+        'Cordova',
+        'Capacitor',
+        'S3',
+        'Nginx',
+        'AWS',
+        'Git',
+        'REST',
+      ],
+    },
+    {
+      title: `${t('words.experiences.conexa')} - ${t('texts.fullStackDeveloper')}`,
+      subtitle: `${d(new Date('2023-08-14'), 'short')} - ${d(new Date('2024-08-09'), 'short')}`,
+      description: t('texts.experiences.conexa'),
+      stacks: ['PHP', 'Yii', 'Vue.js', 'Docker', 'MySQL', 'Cordova', 'Docker', 'REST', 'JQuery'],
+    },
+    {
+      title: `${t('words.experiences.sjba')} - ${t('texts.fullStackDeveloper')}`,
+      subtitle: `${d(new Date('2024-08-06'), 'short')} - ${d(new Date('2025-05-31'), 'short')}`,
+      description: t('texts.experiences.sjba'),
+      stacks: [
+        'Java',
+        'Spring',
+        'Vue.js',
+        'Docker',
+        'Javascript',
+        'TypeScript',
+        'REST',
+        'Web Service',
+      ],
+    },
+  ].reverse(),
+)
 
 const skills = computed(() => [
   {
@@ -389,5 +400,10 @@ const findIntersection = (entry: IntersectionObserverEntry, key: string) => {
   position: absolute;
   top: 1vh;
   z-index: 99;
+}
+
+.card-hover:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
 }
 </style>
