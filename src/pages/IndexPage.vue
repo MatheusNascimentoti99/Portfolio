@@ -1,6 +1,5 @@
 <template>
   <q-page class="row items-center justify-evenly q-pa-lg q-pt-xl non-selectable">
-    <AnimatedLines class="animation-game" />
     <section
       class="q-pt-xl"
       :class="{ row: $q.screen.gt.md }"
@@ -223,7 +222,6 @@ import IndyLogo from 'src/assets/images/indy-logo.png'
 import UnityLogo from 'src/assets/images/unity-logo.svg'
 import JavaLogo from 'src/assets/images/java-logo.png'
 import OpenCVLogo from 'src/assets/images/openCV-logo.png'
-import AnimatedLines from 'src/components/AnimatedLines.vue'
 import SocialMediaList from 'src/components/SocialMediaList.vue'
 
 defineOptions({
@@ -405,5 +403,6 @@ const findIntersection = (entry: IntersectionObserverEntry, key: string) => {
 .card-hover:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease-in-out;
+  z-index: 100;
 }
 </style>
