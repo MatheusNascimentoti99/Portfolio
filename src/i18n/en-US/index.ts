@@ -22,6 +22,7 @@ export default {
       golfarma: 'GolFarma LTDA',
       conexa: 'Conexa',
       sjba: 'Federal Justice of Bahia',
+      mapa: 'Ministério da Agricultura e Pecuária (MAPA)',
     },
     skills: {
       language: 'Language | Languages',
@@ -34,6 +35,9 @@ export default {
       backend: 'Backend',
       mobile: 'Mobile',
       devOps: 'DevOps',
+      agile: 'Agile',
+      scrum: 'Scrum',
+      ProductManagement: 'Product Management',
     },
   },
   languages: {
@@ -54,6 +58,7 @@ export default {
         'Project developed in Java, with the objective of simulating a flight reservation system. The project was developed in the Concurrency and Connectivity discipline, with the objective of applying concepts of concurrency and communication between processes.',
     },
     fullStackDeveloper: 'Full Stack Developer',
+    gpd: 'Digital Product Manager',
     techLead: 'Tech Lead',
     aboutMe: 'About me',
     toggleDarkMode: 'Toggle dark mode',
@@ -80,6 +85,7 @@ export default {
       conexa:
         'I worked on the development of the Conexa Coworking, Recurrence and Associations services, having contact with Jquery, Vue, Yii, MySQL.',
       sjba: 'Internship at the Federal Justice of Bahia, working on the development of internal systems, using Java, Spring, Angular, Docker, Vue, among other technologies.',
+      mapa: 'Currently working at the Ministry of Agriculture and Livestock (MAPA), acting as Digital Product Manager, responsible for leading the development team and managing MAPA\'s digital products.',
     },
   },
 };

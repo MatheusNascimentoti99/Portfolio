@@ -261,7 +261,7 @@ const formation = computed(() =>
       subtitle: `${t('words.formations.postGraduation')}: ${d(
         new Date('2024-08-06'),
         'short',
-      )} - ${t('words.present')}`,
+      )} - ${d(new Date('2025-07-30'), 'short')}`,
       description: t('texts.formations.postGraduationDescription'),
     },
   ].reverse(),
@@ -310,6 +310,16 @@ const experience = computed(() =>
         'TypeScript',
         'REST',
         'Web Service',
+      ],
+    },
+    {
+      title: `${t('words.experiences.mapa')} - ${t('texts.gpd')}`,
+      subtitle: `${d(new Date('2025-06-26'), 'short')} - ${t('words.present')}`,
+      description: t('texts.experiences.mapa'),
+      stacks: [
+        t('words.skills.agile'),
+        t('words.skills.scrum'),
+        t('words.skills.ProductManagement'),
       ],
     },
   ].reverse(),

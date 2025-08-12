@@ -22,6 +22,7 @@ export default {
       golfarma: 'GolFarma LTDA',
       conexa: 'Conexa',
       sjba: 'Justiça Federal da Bahia',
+      mapa: 'Ministério da Agricultura e Pecuária (MAPA)',
     },
     skills: {
       language: 'Linguagem | Linguagens',
@@ -34,6 +35,9 @@ export default {
       backend: 'Backend',
       mobile: 'Mobile',
       devOps: 'DevOps',
+      agile: 'Ágil',
+      scrum: 'Scrum',
+      ProductManagement: 'Gerenciamento de Produtos',
     },
   },
   languages: {
@@ -54,6 +58,7 @@ export default {
         'Projeto desenvolvido em Java, com o objetivo de simular um sistema de reserva de voos. O projeto foi desenvolvido na disciplina de Concorrência e Conectividade, com o objetivo de aplicar conceitos de concorrência e comunicação entre processos.',
     },
     fullStackDeveloper: 'Desenvolvedor Full Stack',
+    gpd: 'Gerente de Produtos Digitais',
     techLead: 'Líder Técnico',
     aboutMe: 'Sobre mim',
     toggleDarkMode: 'Alternar modo escuro',
@@ -80,6 +85,7 @@ export default {
       conexa:
         'Trabalhei no desenvolvimento dos serviços Conexa Coworking, Recorrência e Associações, tendo contato com Jquery, Vue, Yii, MySQL.',
       sjba: 'Estágio na Justiça Federal da Bahia, atuando no desenvolvimento de sistemas internos, utilizando Java, Spring, Angular, Docker, Vue, entre outras tecnologias.',
+      mapa: 'Atualmente atuando no Ministério da Agricultura e Pecuária (MAPA), atuando como Gerente de Produtos Digitais, responsável por liderar a equipe de desenvolvimento e gerenciar os produtos digitais do MAPA.',
     },
   },
 };
