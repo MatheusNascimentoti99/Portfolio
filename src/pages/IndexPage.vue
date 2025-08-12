@@ -162,7 +162,6 @@
     <section class="full-width row justify-center q-my-md" id="projects">
       <h4 v-t="{ path: 'words.project', plural: 2 }" class="q-ml-md text-center full-width"></h4>
       <div
-        class="row no-wrap overflow-auto"
         v-intersection.once="
           (entry: IntersectionObserverEntry) => {
             findIntersection(entry, 'projects')
@@ -171,16 +170,15 @@
         "
         :class="{
           'animate__animated animate__slideInLeft': intersections.projects,
+          'row no-wrap overflow-auto': !$q.screen.lt.md,
         }"
       >
-        <q-card v-for="item in projects" :key="item.title" class="q-ma-sm q-pt-md q-px-sm" bordered>
-          <q-img
-            :src="item.image"
-            alt="FogLedger Indy"
-            height="80px"
-            fit="scale-down"
-            class="q-ma-sm card-projects"
-          />
+        <q-card
+          v-for="item in projects"
+          :key="item.title"
+          class="q-ma-sm q-pt-md q-px-sm card-projects"
+          bordered
+        >
           <q-card-section>
             <q-item>
               <q-item-section>
@@ -400,10 +398,6 @@ const findIntersection = (entry: IntersectionObserverEntry, key: string) => {
 }
 </script>
 <style lang="scss" scoped>
-.card-projects {
-  width: 24rem;
-}
-
 .animation-game {
   position: absolute;
   top: 1vh;
