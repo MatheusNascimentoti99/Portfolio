@@ -170,22 +170,31 @@
         "
         :class="{
           'animate__animated animate__slideInLeft': intersections.projects,
-          'row no-wrap overflow-auto': !$q.screen.lt.md,
+          'row justify-center': !$q.screen.lt.md,
         }"
       >
         <q-card
           v-for="item in projects"
           :key="item.title"
-          class="q-ma-sm q-pt-md q-px-sm card-projects"
+          class="q-ma-sm card-projects col-md-3 col-12"
           bordered
         >
+          <div class="row justify-center">
+            <q-img
+              :src="`${item.image}`"
+              alt="{{ item.title }}"
+              height="80px"
+              fit="contain"
+              class="q-ma-md card-projects"
+            />
+          </div>
           <q-card-section>
             <q-item>
               <q-item-section>
                 <q-item-label header class="q-mb-sm q-pa-none text-subtitle1">
                   {{ item.title }}
                 </q-item-label>
-                <q-item-label caption>
+                <q-item-label caption style="height: 180px" class="overflow-scroll">
                   {{ item.description }}
                 </q-item-label>
                 <q-item-label caption>
@@ -216,10 +225,6 @@ import { openURL } from 'quasar'
 import type { Ref } from 'vue'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import IndyLogo from 'src/assets/images/indy-logo.png'
-import UnityLogo from 'src/assets/images/unity-logo.svg'
-import JavaLogo from 'src/assets/images/java-logo.png'
-import OpenCVLogo from 'src/assets/images/openCV-logo.png'
 import SocialMediaList from 'src/components/SocialMediaList.vue'
 
 defineOptions({
@@ -363,32 +368,47 @@ const skills = computed(() => [
 
 const projects = computed(() => [
   {
+    title: 'GovOportunidades',
+    description: t('texts.projects.govOportunidadesScraping'),
+    link: 'https://github.com/MatheusNascimentoti99/govOportunidadesScraping',
+    image: 'src/assets/images/python-logo.png',
+    stacks: ['Python', 'Scrapy'],
+  },
+  {
+    title: 'Scrollhand',
+    description: t('texts.projects.scrollhand'),
+    link: 'https://github.com/MatheusNascimentoti99/Scrollhand',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png',
+    stacks: ['JavaScript', 'HTML', 'CSS', 'BEX', 'Quasar'],
+  },
+  {
     title: 'FogLedger-Indy',
     description: t('texts.projects.fogLedgerIndy'),
     link: 'https://larsid.github.io/FogLedger-Indy/',
+    image: 'src/assets/images/indy-logo.png',
     stacks: ['Python', 'Docker', 'Hyperledger Indy', 'Aries'],
-    image: IndyLogo,
   },
   {
     title: 'AssociaSom',
     description: t('texts.projects.associaSom'),
     link: 'https://github.com/MatheusNascimentoti99/AssociaSom',
+    image: 'src/assets/images/unity-logo.svg',
     stacks: ['C#', 'Unity', 'Firebase'],
-    image: UnityLogo,
   },
   {
     title: t('texts.projects.recognitionTransitSigns'),
     description: t('texts.projects.recognitionTransitSignsDescription'),
     link: 'https://github.com/MatheusNascimentoti99/ReconhecimentoPlacasTransito-',
+    image: 'src/assets/images/openCV-logo.png',
     stacks: ['Python', 'OpenCV', 'Perceptron', 'KNN'],
-    image: OpenCVLogo,
   },
   {
     title: t('texts.projects.flightReservation'),
     description: t('texts.projects.flightReservationDescription'),
     link: 'https://github.com/ThatsJojo/MI-Redes-3',
+    image: 'src/assets/images/java-logo.png',
     stacks: ['Java', 'Socket', 'UDP', 'TCP', 'HTTP'],
-    image: JavaLogo,
   },
 ])
 

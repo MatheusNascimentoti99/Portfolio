@@ -46,6 +46,8 @@ export default {
   },
   texts: {
     projects: {
+      govOportunidadesScraping: 'Collector to identify government opportunities (edicts) on the SIGEPE portal, extract links and text from PDFs, filter by keywords and notify by email.',
+      scrollhand: "Using the extension, users can control webpage scrolling through hand gestures captured by their device's camera. The extension processes the video feed to detect hand movements and translates these gestures into scrolling actions on the webpage.",
       fogLedgerIndy:
         'Undergraduate thesis, developed in Python, using the Hyperledger Indy library to create a private blockchain network in an IoT environment. Use of a simulation environment for testing and validating the network without the need for complex configurations.',
       associaSom:

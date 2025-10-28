@@ -46,6 +46,8 @@ export default {
   },
   texts: {
     projects: {
+      govOportunidadesScraping: 'Coletor para identificar oportunidades governamentais (editais) no portal do SIGEPE, extrair links e texto de PDFs, filtrar por palavras‑chave e notificar por e‑mail. ',
+      scrollhand: "Usando a extensão, os usuários podem controlar a rolagem da página da web por meio de gestos das mãos capturados pela câmera de seus dispositivos. A extensão processa o feed de vídeo para detectar movimentos das mãos e traduz esses gestos em ações de rolagem na página da web.",
       fogLedgerIndy:
         'Trabalho de conclusão de curso, desenvolvido em Python, utilizando a biblioteca Hyperledger Indy para criação de uma rede blockchain privada em um ambiente de IoT. Utilização de um ambiente de simulação para testes e validação da rede sem a necessidade de configurações complexas.',
       associaSom:
