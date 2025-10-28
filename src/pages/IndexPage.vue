@@ -181,7 +181,7 @@
         >
           <div class="row justify-center">
             <q-img
-              :src="`${item.image}`"
+              :src="item.image"
               alt="{{ item.title }}"
               height="80px"
               fit="contain"
@@ -226,6 +226,11 @@ import type { Ref } from 'vue'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import SocialMediaList from 'src/components/SocialMediaList.vue'
+import openCVLogo from 'src/assets/images/openCV-logo.png'
+import unityLogo from 'src/assets/images/unity-logo.svg'
+import javaLogo from 'src/assets/images/java-logo.png'
+import indyLogo from 'src/assets/images/indy-logo.png'
+import pythonLogo from 'src/assets/images/python-logo.png'
 
 defineOptions({
   name: 'IndexPage',
@@ -371,7 +376,7 @@ const projects = computed(() => [
     title: 'GovOportunidades',
     description: t('texts.projects.govOportunidadesScraping'),
     link: 'https://github.com/MatheusNascimentoti99/govOportunidadesScraping',
-    image: 'src/assets/images/python-logo.png',
+    image: pythonLogo,
     stacks: ['Python', 'Scrapy'],
   },
   {
@@ -386,28 +391,28 @@ const projects = computed(() => [
     title: 'FogLedger-Indy',
     description: t('texts.projects.fogLedgerIndy'),
     link: 'https://larsid.github.io/FogLedger-Indy/',
-    image: 'src/assets/images/indy-logo.png',
+    image: indyLogo,
     stacks: ['Python', 'Docker', 'Hyperledger Indy', 'Aries'],
   },
   {
     title: 'AssociaSom',
     description: t('texts.projects.associaSom'),
     link: 'https://github.com/MatheusNascimentoti99/AssociaSom',
-    image: 'src/assets/images/unity-logo.svg',
+    image: unityLogo,
     stacks: ['C#', 'Unity', 'Firebase'],
   },
   {
     title: t('texts.projects.recognitionTransitSigns'),
     description: t('texts.projects.recognitionTransitSignsDescription'),
     link: 'https://github.com/MatheusNascimentoti99/ReconhecimentoPlacasTransito-',
-    image: 'src/assets/images/openCV-logo.png',
+    image: openCVLogo,
     stacks: ['Python', 'OpenCV', 'Perceptron', 'KNN'],
   },
   {
     title: t('texts.projects.flightReservation'),
     description: t('texts.projects.flightReservationDescription'),
     link: 'https://github.com/ThatsJojo/MI-Redes-3',
-    image: 'src/assets/images/java-logo.png',
+    image: javaLogo,
     stacks: ['Java', 'Socket', 'UDP', 'TCP', 'HTTP'],
   },
 ])
