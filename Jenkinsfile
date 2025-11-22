@@ -1,4 +1,4 @@
-Jenkinsfile (Declarative Pipeline)
+// Jenkinsfile (Declarative Pipeline)
 /* Requires the Docker Pipeline plugin */
 pipeline {
     agent { docker { image 'node:24.11.1-alpine3.22' } }
